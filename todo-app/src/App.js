@@ -1,11 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+
+import TodoList from './components/TodoList';
+import Form from './components/Form'
+
 
 function App() {
   return (
     <div className="App">
-     <h1> Test </h1>
+     <TodoList />
+     <Form />
     </div>
   );
 }
