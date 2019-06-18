@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import {  addTodo } from '../actions'
+import {  addTodo, remove } from '../actions'
 
 class Form extends Component {
 
@@ -10,7 +10,7 @@ class Form extends Component {
 	}
 
 	handleChanges = e => {
-		console.log(this.state.task)
+		// console.log(this.state.task)
 		this.setState({
 			[e.target.name]: e.target.value
 		})
@@ -18,7 +18,7 @@ class Form extends Component {
 
 	addToList = e => {
 		e.preventDefault()
-		console.log(this.state.task)
+		console.log(this.props.todo)
 		this.props.addTodo(this.state.task)
 		this.setState({
 			task: ""
@@ -26,8 +26,8 @@ class Form extends Component {
 	}
 
 	remove = e => {
-		// e.preventDefault()
 		console.log("remove works")
+		this.props.remove()
 	}
 
 	render() {
@@ -66,5 +66,5 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, { addTodo })(Form);
+export default connect(mapStateToProps, { addTodo, remove })(Form);
 

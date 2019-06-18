@@ -14,7 +14,7 @@ const TodoList = (props) => {
 		props.togg_complete(e.target.value)
 		// console.log(props.todo[e.target.value].complete)
 
-		e.target.className = props.todo[e.target.value].complete ? 'strike' : null
+		e.target.className = props.todo[e.target.value].complete ? 'strike' : 'list-item'
 
 	}
 	
@@ -27,7 +27,7 @@ const TodoList = (props) => {
 				return (
 					<ul key={i}>
 						<li
-						// className="strike"
+						className="list-item"
 						value={i} 
 						onClick={strike}
 						> 

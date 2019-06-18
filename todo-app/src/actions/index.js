@@ -9,7 +9,7 @@ export const addTodo = (action) => {
 		type: ADD_TODO,
 		payload: {
 			value: action,
-			completed: false
+			complete: false
 		}
 	}
 }

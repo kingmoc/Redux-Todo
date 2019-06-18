@@ -21,7 +21,7 @@ const initialState = {
 		
 		case ADD_TODO:
 			return {
-				...state, todo: [...state.todo, action.payload]
+				todo: [...state.todo, action.payload]
 			}
 		
 		case TOGG_COMPLETE:
@@ -35,11 +35,14 @@ const initialState = {
 
 		case REMOVE: 
 			
-			return {
-				state
-			}
+			let filterList = state.todo.filter(todo => todo.complete === false )
+			console.log(filterList)
+			console.log(state.todo)
 
-			
+			return {
+				todo: [...filterList]
+				// ...filterList
+			}			
 	  
 	  default:
 		return state;
