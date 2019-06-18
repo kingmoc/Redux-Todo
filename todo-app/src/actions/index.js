@@ -1,10 +1,8 @@
+
+
 export const ADD_TODO = 'ADD_TODO';
-export const TOGG_COMPLETE = 'TOGG_COMPLETE';
-export const REMOVE = 'REMOVE';
-
-
 export const addTodo = (action) => {
-
+	
 	return {
 		type: ADD_TODO,
 		payload: {
@@ -14,8 +12,9 @@ export const addTodo = (action) => {
 	}
 }
 
+export const TOGG_COMPLETE = 'TOGG_COMPLETE';
 export const togg_complete = (id) => {
-
+	
 	return {
 		type: TOGG_COMPLETE,
 		payload: {
@@ -25,11 +24,20 @@ export const togg_complete = (id) => {
 	}
 }
 
+export const REMOVE = 'REMOVE';
 export const remove = () => {
 
 	return {
 		type: REMOVE
 	}
+}
 
+export const DELETE_ONE = 'DELETE_ONE';
+export const delete_one = (id) => {
+
+	return {
+		type: DELETE_ONE,
+		payload: id 
+	}
 }
 

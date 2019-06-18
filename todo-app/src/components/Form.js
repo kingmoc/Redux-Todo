@@ -6,7 +6,7 @@ import {  addTodo, remove } from '../actions'
 class Form extends Component {
 
 	state = {
-		task: ""
+		task: "",
 	}
 
 	handleChanges = e => {

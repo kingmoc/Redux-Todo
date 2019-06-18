@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { togg_complete } from '../actions'
+import { togg_complete, delete_one } from '../actions'
 
 
 
@@ -12,9 +12,12 @@ const TodoList = (props) => {
 	const strike = e => {
 		console.log(e.target.className)
 		props.togg_complete(e.target.value)
-		// console.log(props.todo[e.target.value].complete)
+	}
 
-		e.target.className = props.todo[e.target.value].complete ? 'strike' : 'list-item'
+	const deleteOne = e => {
+		e.preventDefault()
+		props.delete_one(e.target.value)
+		// console.log(e.target.value)
 
 	}
 	
@@ -27,12 +30,13 @@ const TodoList = (props) => {
 				return (
 					<ul key={i}>
 						<li
-						className="list-item"
+						className={action.complete ? 'strike' : 'list-item'}
 						value={i} 
 						onClick={strike}
 						> 
 						{action.value} 
 						</li>
+						<button value={i} onClick={deleteOne}>Delete</button>
 					</ul>
 				)
 			})}
@@ -51,5 +55,5 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {togg_complete})(TodoList);
+export default connect(mapStateToProps, { togg_complete, delete_one })(TodoList);
 

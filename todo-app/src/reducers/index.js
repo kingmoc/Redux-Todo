@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGG_COMPLETE, REMOVE } from '../actions'
+import { ADD_TODO, TOGG_COMPLETE, REMOVE, DELETE_ONE } from '../actions'
 
 
 const initialState = {
@@ -16,7 +16,7 @@ const initialState = {
   
  
   export default (state = initialState, action) => {
-	console.log(action.payload)
+	// console.log(action.payload)
 	switch (action.type) {
 		
 		case ADD_TODO:
@@ -26,15 +26,13 @@ const initialState = {
 		
 		case TOGG_COMPLETE:
 			// console.log(state)
-
-			state.todo[action.payload.id].complete = state.todo[action.payload.id].complete ? false : true;
+			state.todo[action.payload.id].complete = !state.todo[action.payload.id].complete
 
 			return {
 				todo: [...state.todo]
 			}
 
-		case REMOVE: 
-			
+		case REMOVE: 			
 			let filterList = state.todo.filter(todo => todo.complete === false )
 			console.log(filterList)
 			console.log(state.todo)
@@ -42,7 +40,20 @@ const initialState = {
 			return {
 				todo: [...filterList]
 				// ...filterList
-			}			
+			}
+		
+		case DELETE_ONE:
+			console.log(action.payload)
+			// todo[i] !== todo[action.payload]
+			let delOne = state.todo.filter((todo, i, array) => todo !== array[action.payload])
+			console.log(delOne)
+			console.log(state.todo)
+
+			return {
+				...state,
+				todo: [...delOne]
+			}
+
 	  
 	  default:
 		return state;
