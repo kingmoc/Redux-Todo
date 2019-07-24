@@ -1,0 +1,21 @@
+.list {
+
+	// button {
+	// 	margin-left: 15px;
+	// }
+
+	ul {
+		display: flex;
+	}
+
+	.list-item {
+		color: green;
+		margin-right: 15px;
+	}
+	
+	.strike {
+		text-decoration: line-through;
+		color: red;
+		margin-right: 15px;
+	}
+}
